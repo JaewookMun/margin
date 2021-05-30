@@ -1,5 +1,6 @@
 package doit.project.gradesys;
 
+import doit.project.gradesys.calc.BasicGrade;
 import doit.project.gradesys.cmpnt.School;
 
 public class GradeSet {
@@ -51,9 +52,12 @@ public class GradeSet {
 		School school = School.getInstance();
 		grade = school.setGrade(subjectCode, majorCode, score); 
 	}
-	
 	public String getGrade() {
 		return grade;
+	}
+	
+	public String getPass(int score) {
+		return BasicGrade.passNonpass(score);
 	}
 	
 	

@@ -2,13 +2,6 @@ package doit.project.gradesys.calc;
 
 public class MajorGrade implements ScoreCalc {
 	
-	//basic을 상속하는 것으로 설정해야하는지 의문스러움.
-	@Override
-	public int calcScore() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	@Override
 	public String calcGrade(int score) {
 		String grade="";
@@ -20,5 +13,6 @@ public class MajorGrade implements ScoreCalc {
 		else grade="F";
 		return grade;
 	}
+
 	
 }

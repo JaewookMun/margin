@@ -40,7 +40,6 @@ public class Student {
 		this.studentId = studentId;
 	}
 	
-	//unused 경고를 없애기위해 선언한 메소드
 	public int getMajorCode() {
 		return mjrCode;
 	}

@@ -48,6 +48,20 @@ public class GradeReportApp {
 		math.add(m5);
 		
 		ReportTPL.printList("荐切", math, good);
+		
+		//规价错胶
+		ArrayList<GradeSet> dance = new ArrayList<GradeSet>();
+		
+		GradeSet d1 = new GradeSet(School.DANCE_CODE, 181213, School.MJR_KOR_CODE, 95);
+		GradeSet d2 = new GradeSet(School.DANCE_CODE, 182330, School.MJR_COM_CODE, 85);
+		GradeSet d3 = new GradeSet(School.DANCE_CODE, 171518, School.MJR_KOR_CODE, 55);
+		
+		dance.add(d1);
+		dance.add(d2);
+		dance.add(d3);
+		
+		ReportTPL.printList("规价错胶", dance, good);
 
+		
 	}
 }

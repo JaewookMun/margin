@@ -2,14 +2,6 @@ package doit.project.gradesys.calc;
 
 public class BasicGrade implements ScoreCalc {
 
-	//필요시 점수계산방식 작성.
-	@Override
-	public int calcScore() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	//
 	@Override
 	public String calcGrade(int score) {
 		String grade="";
@@ -20,6 +12,12 @@ public class BasicGrade implements ScoreCalc {
 		else grade="F";
 		
 		return grade;
+	}
+	
+	//간단한 사용을 위해 static 메소드로 선언
+	public static String passNonpass(int score) {
+		if(score>=70) return "P";
+		return "F";
 	}
 
 }

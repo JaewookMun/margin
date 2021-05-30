@@ -25,11 +25,6 @@ public class Subject {
 	//subject code에 따라 subject를 얻을 수 있도록 메소드 설정.
 	//과목이 더 늘어나면 과목과 과목코드를 HashMap으로 관리하는 것이 더 효율적으로 보인다.
 	public String getSubject(int subjectCode) {
-		if(subjectCode==School.KOR_CODE) {
-			subject = "국어";
-		} else if (subjectCode==School.MATH_CODE){
-			subject = "수학";
-		}
 		return subject;
 	}
 	
@@ -38,6 +33,8 @@ public class Subject {
 			subject = "국어";
 		} else if (subjectCode==School.MATH_CODE){
 			subject = "수학";
+		} else if(subjectCode==School.DANCE_CODE) {
+			subject = "방송댄스";
 		}
 	}
 	

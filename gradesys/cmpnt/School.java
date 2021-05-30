@@ -8,6 +8,7 @@ import doit.project.gradesys.calc.MajorGrade;
 public class School {
 	public static final int KOR_CODE = 1001;
 	public static final int MATH_CODE = 1002;
+	public static final int DANCE_CODE = 1003;
 	
 	public static final int MJR_KOR_CODE = 11001;
 	public static final int MJR_COM_CODE = 11002;
@@ -54,6 +55,8 @@ public class School {
 		} 
 		return bsc.calcGrade(score);
 	}
+	
+	
 	
 	
 }
