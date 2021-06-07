@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-//[x-2, x+2]±¸°£ -> 
+//[x-2, x+2]Â±Â¸Â°Â£ -> 
 public class MouseSize {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
