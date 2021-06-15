@@ -2,13 +2,13 @@ package doit.project.gradecalculation;
 
 public class ComputerEngineering extends Student {
 
-	//ÇÊµå
-	public static final String MAJOR = "ÄÄÇ»ÅÍ°øÇĞ°ú";
-	private String requiredSubject = "¼öÇĞ";
+	//í•„ë“œ
+	public static final String MAJOR = "ì»´í“¨í„°ê³µí•™ê³¼";
+	private String requiredSubject = "ìˆ˜í•™";
 	private KoreanScore kor = new KoreanScore();
 	private MathScore math = new MathScore();
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public ComputerEngineering() {}
 
 	public ComputerEngineering(String name, int studentId, int korScore, int mathScore, String requiredSubject) {
