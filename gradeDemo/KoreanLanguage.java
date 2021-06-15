@@ -2,14 +2,14 @@ package doit.project.gradecalculation;
 
 public class KoreanLanguage extends Student {
 
-	//ÇÊµå
-	public static final String MAJOR = "±¹¾î±¹¹®ÇĞ°ú";
-	private String requiredSubject = "±¹¾î";
+	//í•„ë“œ
+	public static final String MAJOR = "êµ­ì–´êµ­ë¬¸í•™ê³¼";
+	private String requiredSubject = "êµ­ì–´";
 	private KoreanScore kor = new KoreanScore();
 	private MathScore math = new MathScore();
 	
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public KoreanLanguage() {}
 
 	public KoreanLanguage(String name, int studentId, int korScore, int mathScore, String requiredSubject) {
