@@ -4,15 +4,15 @@ public class GradeResultApp {
 	public static void main(String[] args) {
 		Student[] students = new Student[5];
 		
-		students[0] = new KoreanLanguage("¾È¼º¿ø", 181213, 95, 56, "±¹¾î");
-		students[1] = new ComputerEngineering("¿ÀÅÂÈÆ", 182330, 95, 98, "¼öÇĞ");
-		students[2] = new KoreanLanguage("ÀÌµ¿È£", 171518, 100, 88, "±¹¾î");
-		students[3] = new KoreanLanguage("Á¶¼º¿í", 172350, 89, 95, "±¹¾î");
-		students[4] = new ComputerEngineering("ÃÖÅÂÆò", 171290, 83, 56, "¼öÇĞ");
+		students[0] = new KoreanLanguage("ì•ˆì„±ì›", 181213, 95, 56, "êµ­ì–´");
+		students[1] = new ComputerEngineering("ì˜¤íƒœí›ˆ", 182330, 95, 98, "ìˆ˜í•™");
+		students[2] = new KoreanLanguage("ì´ë™í˜¸", 171518, 100, 88, "êµ­ì–´");
+		students[3] = new KoreanLanguage("ì¡°ì„±ìš±", 172350, 89, 95, "êµ­ì–´");
+		students[4] = new ComputerEngineering("ìµœíƒœí‰", 171290, 83, 56, "ìˆ˜í•™");
 		
 		System.out.println("  ----------------------------");
-		System.out.println("          ±¹¾î ¼ö°­»ı ÇĞÁ¡          ");
-		System.out.println("   ÀÌ¸§  |  ÇĞ¹ø  |ÁßÁ¡°ú¸ñ|  Á¡¼ö");
+		System.out.println("          êµ­ì–´ ìˆ˜ê°•ìƒ í•™ì           ");
+		System.out.println("   ì´ë¦„  |  í•™ë²ˆ  |ì¤‘ì ê³¼ëª©|  ì ìˆ˜");
 		System.out.println("  ----------------------------");
 		
 		for(int i=0; i<students.length; i++) {
@@ -21,8 +21,8 @@ public class GradeResultApp {
 		}
 		
 		System.out.println("  ----------------------------");
-		System.out.println("          ¼öÇĞ ¼ö°­»ı ÇĞÁ¡          ");
-		System.out.println("   ÀÌ¸§  |  ÇĞ¹ø  |ÁßÁ¡°ú¸ñ|  Á¡¼ö");
+		System.out.println("          ìˆ˜í•™ ìˆ˜ê°•ìƒ í•™ì           ");
+		System.out.println("   ì´ë¦„  |  í•™ë²ˆ  |ì¤‘ì ê³¼ëª©|  ì ìˆ˜");
 		System.out.println("  ----------------------------");
 		
 		for(int i=0; i<students.length; i++) {
