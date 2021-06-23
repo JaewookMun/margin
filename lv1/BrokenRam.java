@@ -35,10 +35,10 @@ public class BrokenRam {
 			double calcResult = Math.log(number)/Math.log(2);
 			if(calcResult-(int)calcResult!=0) {
 				count++;
-				indexList.add(i);
+				indexList.add(i+1);
 			}
 		}
 		System.out.println(count);
-		System.out.println(indexList.toString().substring(1, indexList.toString().length()-1));	
+		System.out.println(indexList.toString().replace(",", "").substring(1, indexList.toString().replace(",", "").length()-1));	
 	}
 }
