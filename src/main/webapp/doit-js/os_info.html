@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>check OS info</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var info=navigator.userAgent.toLowerCase();
+		var osimg=null;
+		
+		if(info.indexOf('windows')>=0){
+			osImg="car1.jpg";
+		} else if(info.indexOf('macintosh')>=0) {
+			osImg="car2.jpg";
+		} else if(info.indexOf('iphone')>=0) {
+			osImg="car3.jpg";
+		} else if(info.indexOf('windows')>=0) {
+			osImg="car4.jpg";
+		}
+		
+		document.write("<img src=\"images/"+osImg+"\">", "<br>");
+		var scr=screen;
+		var sc_w = scr.width;
+		var sc_h = scr.height;
+		
+		document.write("모니터 해상도 너비 : "+sc_w+"px", "<br>");
+		document.write("모니터 해상도 높이 : "+sc_h+"px", "<br>");
+		
+	</script>
+	
+	<!-- [Test] -->
+		<img alt="car2" src="images/car2.jpg">
+		
+</body>
+</html>
