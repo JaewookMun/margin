@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.link-light:hover {
+	color: #00adef;
+}
+
+.link-light:state {
+	color: #00adef;
+}
