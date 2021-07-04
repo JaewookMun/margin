@@ -1,8 +1,12 @@
 @charset "UTF-8";
 
+
+
+/* navs 메뉴 hover 컬러 */
 .link-light:hover {
 	color: #00adef;
 }
+
 
 .link-light:state {
 	color: #00adef;
