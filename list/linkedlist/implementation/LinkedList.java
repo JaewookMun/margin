@@ -18,7 +18,12 @@ public class LinkedList {
 	 * 3. 내부 API
 	 * 4. add - 원하는 위치에 추가
 	 * 5. toString() - 문자열 변환
-	 * 6. removeFirst - 첫번째 위치 요소 제거
+	 * 6. removeFirst() - 첫번째 위치 요소 제거
+	 * 7. remove() - 특정위치
+	 * 8. removeLast()
+	 * 9. size()
+	 * 10. get()
+	 * 11. indexOf()
 	 */
 	
 	private class Node{
@@ -112,6 +117,55 @@ public class LinkedList {
 		size--;
 		return returnData;
 	}
+	
+	public Object remove(int k) {
+		if(k==0) {
+			removeFirst();
+		}
+		Node temp = node(k-1);
+		Node todoDeleted = temp.next;
+		temp.next=temp.next.next;
+		Object returnData=todoDeleted.data;
+		if(todoDeleted==tail) {
+			tail=temp;
+		}
+		todoDeleted=null;
+		size--;
+		return returnData;
+	}
+	
+	// 메소드들을 구성할 때 기존에 만든 메소드를 활용해 새로운 메소드를 만들 수 있다. 
+	// LinkedList에서 마지막 요소를 지울 때 tail만 지워서는 안된다.
+	// > 이전 요소의 next 값을 지워야함.
+	// > 이때문에, 마지막 요소를 지울 때 시간이 가장 많이 걸린다.
+	public Object removeLast() {
+		return remove(size-1);
+	}
+	
+	public int size() {
+		return size; // size 값을 관리했기 때문에 size를 빠르게 가져올 수 있다.
+	}
+	
+	public Object get(int k) {
+		Node temp = node(k);
+		return temp.data;
+	}
+	
+	public int indexOf(Object data) {
+		Node temp=head;
+		int index=0;
+		while(temp.data != data) {
+			temp=temp.next;
+			index++;
+			if(temp==null) {
+				return -1;
+			}
+		}
+		return index;
+	}
+	
+	
+	
 	
 	
 }
