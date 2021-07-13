@@ -24,6 +24,10 @@ public class LinkedList {
 	 * 9. size()
 	 * 10. get()
 	 * 11. indexOf()
+	 * 12. ListIterator - next()
+	 * 13. hasNext()
+	 * 14. add() - next()가 head를 가리키느냐 or 리스트 중간에 있느냐
+	 * 15.
 	 */
 	
 	private class Node{
@@ -164,7 +168,53 @@ public class LinkedList {
 		return index;
 	}
 	
+	public ListIterator listIterator() {
+		return new ListIterator();
+	}
 	
+	public class ListIterator {
+		private Node next;
+		private Node lastReturned;
+		private int nextIndex;
+		
+		ListIterator(){
+			next=head;
+		}
+		
+		// difficult
+		public Object next() {
+			lastReturned=next;
+			next=next.next;
+			nextIndex++;
+			return lastReturned.data;
+		}
+		
+		public boolean hasNext() {
+			return nextIndex < size();
+			// private인 size 필드가 아닌 size() 메소드를 통해 size를 얻어온다.
+		}
+		// LinkedList는 노드가 다음 노드의 링크정보를 갖는다.
+		// index로 요소를 구분하는 ArrayList와 달리 이전 노드정보를 찾을 수 없다.
+		
+		public void add(Object input) {
+			Node newNode = new Node(input);
+			
+			if(lastReturned == null) {
+				// 첫위치
+				head=newNode;
+				newNode.next=next;
+			} else {
+				// lastReturned는 계속 next의 뒤에 따라온다.
+				lastReturned.next=newNode;
+				newNode.next=next;
+			}
+			
+			
+			nextIndex++;
+			size++;
+		}
+		
+	}
 	
 	
 	

@@ -14,15 +14,25 @@ public class Main {
         //numbers.addLast(15); 
         numbers.addLast(20); 
         numbers.addLast(30); 
-        // numbers.add(1,15); // 10과 20 사이에 집어넣는다.
-        // System.out.println(numbers.removeFirst());
+        // LinkedList.ListIterator i =numbers.listIterator();
+        /*
+        System.out.println(i.next());
+        System.out.println(i.next());
+        System.out.println(i.hasNext());
+        System.out.println(i.next());
+        System.out.println(i.hasNext());
+        */
+        /*
+        while(i.hasNext()) {
+        	System.out.println(i.next());
+        }
+        */
         
-        // System.out.println(numbers.remove(2));
-        // System.out.println(numbers.removeLast());
-        // System.out.println(numbers.size());
-        // System.out.println(numbers.get(1));
-        System.out.println(numbers.indexOf(10));
-        //System.out.println(numbers);
-        
+        LinkedList.ListIterator i = numbers.listIterator();
+        i.add(5);
+        i.next();
+        i.add(15);
+        System.out.println(numbers); // [5, 10, 15, 20, 30]
+        // LinkedList는 next를 통해 서로 연결
     }
 }
