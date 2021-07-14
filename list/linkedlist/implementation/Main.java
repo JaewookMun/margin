@@ -27,12 +27,16 @@ public class Main {
         	System.out.println(i.next());
         }
         */
-        
+        // ArrayList : index, LinkedList : link(= next)
         LinkedList.ListIterator i = numbers.listIterator();
-        i.add(5);
-        i.next();
-        i.add(15);
-        System.out.println(numbers); // [5, 10, 15, 20, 30]
-        // LinkedList는 next를 통해 서로 연결
+        while(i.hasNext()) {
+        	if((int)i.next()==20) {
+        		i.remove();
+        	}
+        }
+        System.out.println(numbers); // 이해가 잘 안감...
+        
+        i.remove();
+        
     }
 }

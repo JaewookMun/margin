@@ -27,7 +27,7 @@ public class LinkedList {
 	 * 12. ListIterator - next()
 	 * 13. hasNext()
 	 * 14. add() - next()가 head를 가리키느냐 or 리스트 중간에 있느냐
-	 * 15.
+	 * 15. remove()
 	 */
 	
 	private class Node{
@@ -209,9 +209,17 @@ public class LinkedList {
 				newNode.next=next;
 			}
 			
-			
 			nextIndex++;
 			size++;
+		}
+
+		// LinkedList의 삭제는 연결정보를 지우는 것이다.
+		public void remove() {
+			if(nextIndex==0) {// 현재 아무런 엘리먼트도 선택하지 않은 상태
+				throw new IllegalStateException();
+			}
+			LinkedList.this.remove(nextIndex-1);
+			nextIndex--;
 		}
 		
 	}
