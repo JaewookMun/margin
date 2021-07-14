@@ -107,7 +107,7 @@ public class ArrayList {
 		return new ListIterator();
 	}
 	
-	class ListIterator{
+	public class ListIterator{
 		private int nextIndex=0;
 		// next() 메소드가 호출될 때 마다 필요한 인덱스를 알 수 있다면 기능을 구현할 수 있음.
 		// nextIndex는 ArrayList의 요소를 가리킨다.
