@@ -1,8 +1,7 @@
 package hfdp.factory.method.pizza;
 
-import hfdp.factory.basic.Pizza;
 
-public class NYStyleClamPizza implements Pizza {
+public class NYStyleClamPizza extends Pizza {
 
 	@Override
 	public void prepare() {

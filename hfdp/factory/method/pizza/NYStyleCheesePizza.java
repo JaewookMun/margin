@@ -1,9 +1,16 @@
 package hfdp.factory.method.pizza;
 
-import hfdp.factory.basic.Pizza;
 
-public class NYStyleCheesePizza implements Pizza {
+public class NYStyleCheesePizza extends Pizza {
 
+	public NYStyleCheesePizza() {
+		name="NY Style Sauce and Cheese Pizza";
+		dough = "Thin Crust Dough";
+		sauce = "Marinara Sauce";
+		
+		toppings.add("Grated Reggiano Cheese");
+	}
+	
 	@Override
 	public void prepare() {
 		// TODO Auto-generated method stub
