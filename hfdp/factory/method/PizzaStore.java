@@ -1,6 +1,6 @@
 package hfdp.factory.method;
 
-import hfdp.factory.method.pizza.Pizza;
+import hfdp.factory.basic.Pizza;
 
 // 피자 가게와 피자 제작 과정 전체를 하나로 묶어주는 프레임워크 생성
 public abstract class PizzaStore {

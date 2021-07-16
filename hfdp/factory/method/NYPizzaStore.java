@@ -1,10 +1,10 @@
 package hfdp.factory.method;
 
+import hfdp.factory.basic.Pizza;
 import hfdp.factory.method.pizza.NYStyleCheesePizza;
 import hfdp.factory.method.pizza.NYStyleClamPizza;
 import hfdp.factory.method.pizza.NYStylePepperoniPizza;
 import hfdp.factory.method.pizza.NYStyleVeggiePizza;
-import hfdp.factory.method.pizza.Pizza;
 
 public class NYPizzaStore extends PizzaStore {
 

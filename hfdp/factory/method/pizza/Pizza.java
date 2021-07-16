@@ -2,7 +2,7 @@ package hfdp.factory.method.pizza;
 
 import java.util.ArrayList;
 
-public abstract class Pizza {
+public abstract class Pizza implements hfdp.factory.basic.Pizza {
 	String name;
 	String dough;
 	String sauce;
