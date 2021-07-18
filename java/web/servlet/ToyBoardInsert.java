@@ -32,11 +32,12 @@ public class ToyBoardInsert extends HttpServlet{
 
 		int row=BoardDAO.getInstance().insertPost(post);
 		
-		if(row!=1) {
+		if(row<=0) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		} else {
-			response.sendRedirect("board.servlet.toy");
+			// response.sendRedirect("board.servlet.toy");
+			response.sendRedirect("/margin/toyBoard/JSP/main_board.jsp");
 		}
 	}
 }
