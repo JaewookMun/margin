@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+				<div class="card-body" id="content-footer">
+					<div class="row d-flex align-items-center">
+						<div class="col-3">
+							<p>ⓒ 2021 - <span style="font-weight: bold; font-size: 11px;">Samjo</span>
+								. All Rights Reserved. </p>
+						</div>
+						<div class="col-9" style="text-align: right;">
+							<p>Contact team leader, <span style="font-style: italic;">Margin</span>&nbsp;,&nbsp;for design</p>
+						</div>
+
+					</div>
+				</div>
