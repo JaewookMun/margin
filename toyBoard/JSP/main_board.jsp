@@ -3,6 +3,12 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	if(session.getAttribute("isLoged")==null){
+		response.sendRedirect("/margin/authorization/login.jsp");
+	}
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
