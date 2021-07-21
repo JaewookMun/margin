@@ -11,6 +11,15 @@
 	************************************************************************************************************
 	-->
 
+<% 
+	request.setCharacterEncoding("utf-8");	
+	String category=request.getParameter("category");
+	
+	if(category==null){
+		category="";
+	}
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +55,9 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<jsp:include page="/admin/sidebar_script.jsp">
+		<jsp:param value="<%= category %>" name="category"/>
+	</jsp:include>
 </body>
 </html>

@@ -10,7 +10,15 @@
 	* @author JaewookMun
 	************************************************************************************************************
 	-->
+<% 
+	request.setCharacterEncoding("utf-8");	
+	String category=request.getParameter("category");
+	
+	if(category==null){
+		category="";
+	}
 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +28,8 @@
 	<%-- bootstrap, font, CSS --%>
 	<%@ include file="/admin/head_config.jspf" %>
 	
-	
-	
 </head>
+
 <body>
 	<!-- sidebar & navbar     -->
 	<div class="row container-fluid mx-0 px-0 fixed-top" id="outline">
@@ -46,6 +53,9 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<jsp:include page="/admin/sidebar_script.jsp">
+		<jsp:param value="<%= category %>" name="category"/>
+	</jsp:include>
 </body>
 </html>

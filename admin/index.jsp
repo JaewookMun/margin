@@ -11,6 +11,15 @@
 	* @author JaewookMun
 	************************************************************************************************************
 	-->
+<% 
+	request.setCharacterEncoding("utf-8");
+	String category=request.getParameter("category");
+	
+	if(category==null){
+		category="";
+	}
+
+%>
 
 <!DOCTYPE html>
 <html>
@@ -20,11 +29,8 @@
 	
 	<%-- bootstrap, font, CSS --%>
 	<%@ include file="/admin/head_config.jspf" %>
-	
-	
-	
-	
 </head>
+
 <body>
 	<!-- sidebar & navbar     -->
 	<div class="row container-fluid mx-0 px-0 fixed-top" id="outline">
@@ -41,8 +47,7 @@
 					<h3 style="text-align: center;" id="test">Admin page test</h3>
 					<img alt="" src="workspace.jpg" width="700" class="d-block mx-auto my-3">
 					<img alt="" src="workspace.jpg" width="700" class="d-block mx-auto my-3">
-					
-
+					<p id="test"></p>
 
 
 
@@ -52,8 +57,11 @@
 			</div>
 		</div>
 	</div>
-
-
-
+	
+	
+	<jsp:include page="/admin/sidebar_script.jsp">
+		<jsp:param value="<%= category %>" name="category"/>
+	</jsp:include>
+	
 	</body>
 </html>
