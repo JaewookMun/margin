@@ -18,7 +18,7 @@ public class BoardDAO extends OracleConnectionPool {
 		return _instance;
 	}
 	
-	// check : Sequence(½ÃÄö½º) ÃÊ±âÈ­
+	// check : Sequence(ì‹œí€€ìŠ¤) ì´ˆê¸°í™”
 	
 	public int insertPost(BoardDTO post) {
 		Connection con=null;
@@ -74,7 +74,7 @@ public class BoardDAO extends OracleConnectionPool {
 		return postList;
 	}
 	
-	// ÇÏ³ª¸¸ Áö¿ï °æ¿ì
+	// í•˜ë‚˜ë§Œ ì§€ìš¸ ê²½ìš°
 	public int deletePost(int no) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -98,8 +98,8 @@ public class BoardDAO extends OracleConnectionPool {
 	}
 	
 	
-	/* ¹İº¹Ã³¸®ÇÒ ¼ö ÀÖÀ½.
-	// µÎ°³ ÀÌ»ó Áö¿ï °æ¿ì
+	/* ë°˜ë³µì²˜ë¦¬í•  ìˆ˜ ìˆìŒ.
+	// ë‘ê°œ ì´ìƒ ì§€ìš¸ ê²½ìš°
 	public int[] deletePosts(int[] noArray) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
