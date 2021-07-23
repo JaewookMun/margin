@@ -1,7 +1,7 @@
 package web.data;
 
 /*
-ÀÌ¸§      ³Î?       À¯Çü             
+Ã€ÃŒÂ¸Â§      Â³ÃŽ?       Ã€Â¯Ã‡Ã¼             
 ------- -------- -------------- 
 NO      NOT NULL NUMBER         
 NAME    NOT NULL VARCHAR2(10)   
