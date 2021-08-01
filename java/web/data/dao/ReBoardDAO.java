@@ -18,11 +18,19 @@ public class ReBoardDAO extends OracleConnectionPool {
 		
 	}
 	
+	static {
+		_dao=new ReBoardDAO();
+	}
+	
 	public static ReBoardDAO getDAO() {
 		return _dao;
 	}
 	
-	// 전체 게시글 갯수 출력
+	/**
+	 * 전체 게시글 갯수 출력
+	 * 
+	 * @return
+	 */
 	public int selectAllCount() {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -48,7 +56,14 @@ public class ReBoardDAO extends OracleConnectionPool {
 		return count;
 	}
 	
-	// 페이징 처리된 페이지에 해당하는 게시글 출력
+	/**
+	 * 페이징 처리된 페이지에 해당하는 게시글들 출력
+	 * 
+	 * @param startRow
+	 * @param endRow
+	 * @return
+	 */
+	
 	public List<ReBoardDTO> selectPostList(int startRow, int endRow){
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -58,8 +73,8 @@ public class ReBoardDAO extends OracleConnectionPool {
 		try {
 			con=getConnection();
 			String sql="SELECT * FROM (SELECT ROWNUM rn, temp.* FROM "
-					+ "((SELECT * FROM reply_board ORDER BY ref DESC, re_step) temp)"
-					+ " WHERE rn ? and ?";
+					+ "(SELECT * FROM reply_board ORDER BY ref DESC, re_step) temp)"
+					+ " WHERE rn BETWEEN ? and ?";
 				// sql 명령에서 [테이블명.컬럼명]으로 표기 가능한 점을 잊지말자. 
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);
@@ -87,5 +102,94 @@ public class ReBoardDAO extends OracleConnectionPool {
 		}
 		
 		return postList;
+	}
+	
+	/**
+	 * 다음 시퀀스 번호 제공
+	 */
+	public int nextNum() {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int nextNum = 0;
+		
+		try {
+			con=getConnection();
+			String sql="SELECT board_seq.nextval FROM dual";
+			pstmt=con.prepareStatement(sql);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				nextNum=rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("[SQL] nextSeq() 메서드 error : "+e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		
+		return nextNum;
+	}
+	
+	/**
+	 * 기존 게시글 reStep 정보 업데이트
+	 * 
+	 * @param ref
+	 * @param reStep
+	 * @return
+	 */
+	public int updateReStep(int ref, int reStep) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rows=0;
+		
+		try {
+			con=getConnection();
+			String sql="UPDATE reply_board SET reStep=reStep+1 WHERE ref=? AND reStep>?";
+			pstmt=con.prepareStatement(sql);
+			
+			rows=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("[SQL] updateReStep() 메서드 error : "+e.getMessage());
+		}
+		
+		return rows;
+	}
+	
+	/**
+	 * 게시글 추가
+	 * 
+	 * @param post
+	 * @return
+	 */
+	public int insertPost(ReBoardDTO post) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rows=0;
+		
+		try {
+			con=getConnection();
+			String sql="INSERT INTO reply_board VALUES(?, ?, ?, ?, ?, ?, ?, sysdate, ?)";
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, post.getNo());
+			pstmt.setString(2, post.getWriter());
+			pstmt.setString(3, post.getTitle());
+			pstmt.setInt(4, post.getRef());
+			pstmt.setInt(5, post.getReStep());
+			pstmt.setInt(6, post.getReLevel());
+			pstmt.setString(7, post.getContent());
+			pstmt.setInt(8, post.getStatus());
+			
+			rows=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("[SQL] insertPost() 메서드 error : "+e.getMessage());
+		} finally {
+			close(con, pstmt);
+		}
+		
+		return rows;		
 	}
 }
