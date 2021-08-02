@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<% 
+	String btnName=null;
+	String url=null;
+
+	if(session.getAttribute("loginMember")==null){
+		btnName="log-in";
+		url=request.getContextPath()+"/member/login.jsp";
+	} else {
+		btnName="log-out";
+		url=request.getContextPath()+"/logout.toy";
+	}
+%>
+
+<style type="text/css">
+		.inline {
+			display: inline;
+		}
+		
+		hr {
+			margin-top: 0;
+			color: #9d9e9f;
+		}
+		
+		.home-btn {
+			border-left-style: ridge;
+		}
+		
+		li a {
+			font-size: 0.9em;
+		}
+				
+</style>
+
+<nav class="navbar navbar-light bg-light">
+	<div class="container-fluid ms-4">
+		<span class="navbar-brand mb-0 h1">Margin's practice</span>
+	    <div class="btn-group dropstart">
+			<button type="button" class="btn btn-secondary dropdown-toggle me-4 bg-dark"
+				data-bs-toggle="dropdown" aria-expanded="false">List
+			</button>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="<%= request.getContextPath() %>/cloneBenz/home.html">Test Layout-1: 'Benz' </a></li>
+				<li><a class="dropdown-item" href="<%= request.getContextPath() %>/admin/index.jsp">Admin Page-Directive</a></li>
+				<li><a class="dropdown-item" href="<%= request.getContextPath() %>/admin_template/index.jsp">Admin Page-Action Tag</a></li>
+				<li><a class="dropdown-item" href="<%= request.getContextPath() %>/toyBoard/main_board.jsp">Toy Board - JSP</a></li>
+				<li><a class="dropdown-item" href="<%= request.getContextPath() %>/replyBoard/board_view.jsp">reply board - 계층형</a></li>
+			</ul>
+			<button type="button" class="home-btn" onclick="location.href='<%=request.getContextPath() %>/index.jsp'">home</button>
+			<button type="button" class="btn btn-outline-dark" onclick="location.href='<%= url %>'"><%= btnName %></button>
+		</div>
+	</div>
+</nav>
+<hr>
