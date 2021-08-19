@@ -1,1 +1,7 @@
 /build/
+
+# Eclipse project files
+.settings
+.classpath
+.project
+.tern-project
