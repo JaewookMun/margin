@@ -4,5 +4,5 @@
 	type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
 	factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
     url="jdbc:oracle:thin:@localhost:1521:xe"
-    username="scott" password="tiger" maxTotal="20" maxIdle="10"/>
+    username="margin" password="jack" maxTotal="20" maxIdle="10"/>
 </Context>

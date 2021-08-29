@@ -14,7 +14,7 @@ public abstract class JdbcCP {
 	
 	static {
 		try {
-			_cp=(DataSource) new InitialContext().lookup("java:comp/env/jdbc/myoracle");
+			_cp=(DataSource)new InitialContext().lookup("java:comp/env/jdbc/myoracle");
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
