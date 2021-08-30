@@ -11,12 +11,12 @@ public class LoginFormModel implements Action {
 
 	@Override
 	public ForwardInfo execute(HttpServletRequest request, HttpServletResponse response) {
-		ForwardInfo info = new ForwardInfo();
-		info.setForward(true);
-		info.setPath("member/login_form.jsp");
+		ForwardInfo forwardInfo = new ForwardInfo();
+		forwardInfo.setForward(true);
+		forwardInfo.setPath("member/login_form.jsp");
 		
 		
-		return info;
+		return forwardInfo;
 	}
 
 }
