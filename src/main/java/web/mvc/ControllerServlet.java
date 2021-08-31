@@ -48,8 +48,10 @@ public class ControllerServlet extends HttpServlet {
 		 * 해석한다.
 		 * If the location is relative with a leading '/' the container interprets it as relative to the servlet container root.)
 		 * 
-		 * 하지만, 포워드 이동 시 사용하는 getRequestDispatcher는 상대경로를 매개변수로 받으며 절대경로 표시방식으로 경로를 적어도
+		 * 하지만, 포워드 이동 시 사용하는 getRequestDispatcher는 상대경로를 매개변수로 받으며 절대경로 표시방식으로 경로를 전달받아도
 		 * 현재의 Context root의 상대경로로 해석된다.
+		 * 
+		 * -> 이동시 경로는 상대경로로 표기하면 편함.
 		 * 
 		 * The pathname specified may be relative, although it cannot extend outside the current servlet context. 
 		 * If the path begins with a "/" it is interpreted as relative to the current context root. 

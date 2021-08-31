@@ -13,7 +13,7 @@ public class LoginModel implements Action {
 	public ForwardInfo execute(HttpServletRequest request, HttpServletResponse response) {
 		ForwardInfo forwardInfo=new ForwardInfo();
 		forwardInfo.setForward(false);
-		forwardInfo.setPath("test");
+		forwardInfo.setPath("error.do");
 		
 		return forwardInfo;
 	}
