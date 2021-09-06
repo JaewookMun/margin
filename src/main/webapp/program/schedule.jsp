@@ -26,78 +26,91 @@ function next() {
 
 function makeCalendar(){// 현재 달 달력 만들기
 	// getMonth() : 0 ~ 11
-	// 일자를 0으로 설정할 경우 해당월의 마지막날이 나온다.
-	
-	var firstDate = new Date(today.getFullYear(),today.getMonth()+1,1);
+	var firstDate = new Date(today.getFullYear(),today.getMonth(),1);
+	// 일자를 0으로 설정할 경우 이전 월의 마지막날이 나온다.
 	var lastDate = new Date(today.getFullYear(),today.getMonth()+1,0);
-
+	
+	// 년.월 표기
+	var yearMonthTxt = document.getElementById("yearMonthTxt");
+	yearMonthTxt.innerHTML = today.getFullYear() + "." + (today.getMonth()+1); 
+	
 	// calendar 엘리먼트
 	var calendarElement = document.getElementById("calendar");
 	
-	var yearMonthTxt = document.getElementById("yearMonthTxt");
-
-	yearMonthTxt.innerHTML = today.getFullYear() + "." + (today.getMonth() + 1); 
-
-	var row = null;
-	row = tbCalendar.insertRow();
-	//테이블에 새로운 열 삽입//즉, 초기화
-	var cnt = 0;// count, 셀의 갯수를 세어주는 역할
-	// 1일이 시작되는 칸을 맞추어 줌
-	for (i=0; i<doMonth.getDay(); i++) {
-		/*이번달의 day만큼 돌림*/
-		cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
-		cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
+	var html="";
+	var count=0;
+	
+	html+="<div class='days'>"
+	// sun - sat : 0 - 6
+	for(i=0; i<firstDate.getDay(); i++) {
+		html+="<div class='date'>&nbsp;</div>"
+		count++;
 	}
-	/*달력 출력*/
-	for (i=1; i<=lastDate.getDate(); i++) { 
-	//1일부터 마지막 일까지 돌림
-		cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
-		cell.innerHTML = i;//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
-		cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
-		if (cnt % 7 == 1) {/*일요일 계산*/
-		//1주일이 7일 이므로 일요일 구하기
-		//월화수목금토일을 7로 나눴을때 나머지가 1이면 cnt가 1번째에 위치함을 의미한다
-		cell.innerHTML = "<font color=#F79DC2>" + i
-		//1번째의 cell에만 색칠
-		}    
-		if (cnt%7 == 0){/* 1주일이 7일 이므로 토요일 구하기*/
-			//월화수목금토일을 7로 나눴을때 나머지가 0이면 cnt가 7번째에 위치함을 의미한다
-			cell.innerHTML = "<font color=skyblue>" + i
-			//7번째의 cell에만 색칠
-			row = calendar.insertRow();
-			//토요일 다음에 올 셀을 추가
-		}
-		/*오늘의 날짜에 노란색 칠하기*/
-		if (today.getFullYear() == date.getFullYear()
-			&& today.getMonth() == date.getMonth()
-			&& i == date.getDate()) {
-			//달력에 있는 년,달과 내 컴퓨터의 로컬 년,달이 같고, 일이 오늘의 일과 같으면
-			cell.bgColor = "#FAF58C";//셀의 배경색을 노랑으로 
+	
+	for(i=0; i<lastDate.getDate(); i++) {
+		html+="<div id=date"+(i+1)+" class='date'>"+(i+1)+"</div>"
+		count++;
+		if(count%7==0){
+			html+="</div><div class='days'>";
 		}
 	}
+	
+	html+="</div>";
+	
+	/*
+	html+="<table><tr>"
+	
+	for(i=0; i<firstDate.getDay(); i++) {
+		html+="<td class='date'></td>"
+		count++;
+	}
+	
+	for(i=0; i<lastDate.getDate(); i++) {
+		html+="<td id=date"+(i+1)+" class='date'>"+(i+1)+"</td>"
+		count++;
+		if(count%7==0){
+			html+="</tr><tr>";
+		}
+	}
+	html+="</tr></table>"
+	*/
+	
+	calendarElement.innerHTML=html;
 }
+
+
 </script>
 <style>
+/*
+* {
+	-webkit-box-sizing: border-box;
+}
+*/
 body {
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Noto Sans KR', sans-serif;
 }
+
+
 #header {
 	border-bottom: 1px solid gray;
 	padding: 40px;
 }
 
 #container {
-	width: 80%;
+	width: 1000px;
 	margin: 0 auto;
-	padding-top: 40px;
+	height: auto;
+	padding: 50px;
 	margin-bottom: 80px;
 	text-align: center;
+	position: relative;
 }
 
 .cont-title {
 	padding-top: 10px;
+	width: 100%;
 }
 
 .cont-title h1 {
@@ -116,6 +129,7 @@ body {
 
 .cont-nav {
 	text-align: center;
+	width: 100%;
 }
 
 .cont-nav ul {
@@ -126,7 +140,7 @@ body {
 	display: inline-block;
 	list-style: none;
 	border: 1px solid #e2e2e2;
-	width: 14%;
+	width: 16.455%;
 	height: 50px;
 	color: #b29a95;
 }
@@ -145,20 +159,25 @@ body {
 	color: #ffffff;
 }
 
-/******************************************************************************************/
-/* 달력관련 css */
+/*****************************************************************/
+/* 달력 css - year, month */
 
 .calendar-area {
 	margin-top: 50px;
+	width: 100%;
 }
 
 #month-area {
 	margin-bottom: 40px;
+	font-size: 0;
 }
 
 #month-area div {
 	display: inline;
+	user-select: none;
 }
+
+#yearMonthTxt {user-select: text !important;}
 
 
 #prevMonth img {
@@ -193,9 +212,84 @@ body {
 }
 
 
-.day {
-	display: inline;
+
+/*****************************************************************/
+/* 달력 css - days(week), day(요일), date(일) */
+
+#calendar {
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
 }
+
+.days {
+	width: 100%;
+	text-align: left;
+}
+
+.days .date:nth-child(7) {
+	color: #3399FF;
+}
+
+.days .date:first-child {
+	color: #FF6600;
+}
+
+.day, .date {
+	user-select: none;
+	display: inline-block;
+	width: 13.075%;
+}
+
+.day {
+	background: #78808c;
+	color: #fdf6ee;
+	margin: 0px;
+	padding: 10px 6px;
+	text-align: center;
+}
+
+.date {
+	border: 1px solid #f0f0f0;
+	padding: 5px;
+	height: 168px;
+	text-align: right;
+	font-size: 14px;
+	color: #666;
+	position: relative;
+}
+
+.date:hover {
+	background: #fef0f0;
+}
+
+/*****************************************************************/
+/* event */
+/*calendar, date -> position relative로 수정*/
+.event {
+	width:100%;
+	clear: both;
+	position: absolute;
+	top: 20px;
+	right: 50px;
+	display:inline-block;
+	font-size: 13px;
+	margin-bottom:2px;
+	line-height: 0px;
+}
+
+.event a {
+	text-decoration: none;
+
+}
+.event a:active {
+	color: #561f8e;
+}
+
+.event:hover {
+	text-decoration: underline;
+}
+
 
 </style>
 
@@ -209,58 +303,71 @@ body {
 			<h1>프로그램</h1>
 			<span></span>
 		</div>
-		<div class="main-content">
-			<div class="cont-nav">
-				<ul>
-					<li class="link-tab"><a href="schedule.jsp?tab=1">전체일정</a></li><!--  
-					--><li class="link-tab"><a href="acajabong.jsp?tab=2">아카자봉</a></li><!--
-					--><li class="link-tab"><a href="academy.jsp?tab=3">아카데미</a></li><!--
-					--><li class="link-tab"><a href="cleanolle.jsp?tab=4">클린올레</a></li><!--
-					--><li class="link-tab"><a href="volun.jsp?tab=5">자원봉사</a></li><!--
-					--><li class="link-tab"><a href="together.jsp?tab=6">길동무</a></li>
-				</ul>
-			</div>
-			<div class="calendar-area">
-				<div id="month-area">
-					<%-- 이전 달로 이동 --%>
-					<div id="prevMonth">
-						<img alt="next" src="images/month_prev.png">
-					</div>
-					
-					<%-- 연도 & 월 --%>
-					<div id="yearMonthTxt"></div>
-					
-					<%-- 다음 달로 이동 --%>
-					<div id="nextMonth">
-						<img alt="next" src="images/month_next.png">
-					</div>
+		<div class="cont-nav">
+			<ul>
+				<li class="link-tab"><a href="schedule.jsp?tab=1">전체일정</a></li><!--  
+				--><li class="link-tab"><a href="acajabong.jsp?tab=2">아카자봉</a></li><!--
+				--><li class="link-tab"><a href="academy.jsp?tab=3">아카데미</a></li><!--
+				--><li class="link-tab"><a href="cleanolle.jsp?tab=4">클린올레</a></li><!--
+				--><li class="link-tab"><a href="volun.jsp?tab=5">자원봉사</a></li><!--
+				--><li class="link-tab"><a href="together.jsp?tab=6">길동무</a></li>
+			</ul>
+		</div>
+		<div class="calendar-area">
+			<div id="month-area">
+				<%-- 이전 달로 이동 --%>
+				<div id="prevMonth" onclick="prev();">
+					<img alt="next" src="images/month_prev.png">
 				</div>
-			
-				<div class="program_type"></div>
 				
-				<div id="days">
-					<div class="day">일</div>
-					<div class="day">월</div>
-					<div class="day">화</div>
-					<div class="day">수</div>
-					<div class="day">목</div>
-					<div class="day">금</div>
-					<div class="day">토</div>
+				<%-- 연도 & 월 --%>
+				<div id="yearMonthTxt"></div>
+				
+				<%-- 다음 달로 이동 --%>
+				<div id="nextMonth" onclick="next();">
+					<img alt="next" src="images/month_next.png">
 				</div>
-				<%-- 6줄... --%>
 			</div>
+		
+			<div class="program_type"></div>
+			
+			<div class="days">
+				<div class="day">일</div><!--  
+				--><div class="day">월</div><!--
+				--><div class="day">화</div><!--
+				--><div class="day">수</div><!--
+				--><div class="day">목</div><!--
+				--><div class="day">금</div><!--
+				--><div class="day">토</div>
+			</div>
+			
+			<%-- 달력 출력 엘리먼트 --%>
+			<div id="calendar"></div>
+			
 		</div>
 	</div>
 	<div id="footer">
 	
 	</div>
 	<script type="text/javascript">
+		makeCalendar();	
+	
 		function addOn(){
 			var tabList=document.getElementsByClassName("link-tab");
 			tabList[0].classList.add("on");
 		}
 		addOn();
 		
+		function addLinkTest(dateId, scheduleNo){
+			var date=document.getElementById(dateId);
+			var html="<div class='event'><a href='https://www."+scheduleNo+".com'>0코스 네이버링크</a></div>";
+			
+			date.insertAdjacentHTML("beforeend", html);
+		}
+		addLinkTest("date6", "naver");
+		
+		
+		/*
 		function test(){
 			var yearMonthTxt = document.getElementById("yearMonthTxt");
 
@@ -268,8 +375,11 @@ body {
 		}
 		
 		test();
-	
-	
+		
+		var html="<div id='test1' class='day'>test</div>";
+		document.getElementById("days").insertAdjacentHTML('beforeend', html);
+		*/
+		
 	</script>
 </body>
 </html>
