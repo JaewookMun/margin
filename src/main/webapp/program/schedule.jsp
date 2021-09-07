@@ -48,7 +48,7 @@ function makeCalendar(){// 현재 달 달력 만들기
 	}
 	
 	for(i=0; i<lastDate.getDate(); i++) {
-		html+="<div id=date"+(i+1)+" class='date'>"+(i+1)+"</div>"
+		html+="<div id=date"+(i+1)+" class='date'>"+(i+1)+"<div class='event'></div></div>"
 		count++;
 		if(count%7==0){
 			html+="</div><div class='days'>";
@@ -77,6 +77,19 @@ function makeCalendar(){// 현재 달 달력 만들기
 	
 	calendarElement.innerHTML=html;
 }
+
+function addLinkTest(dateId, scheduleNo){
+	/*
+	var date=document.getElementById(dateId);
+	var html="<div class='event'><div><a href='https://www."+scheduleNo+".com'>0코스 네이버링크</a></div></div>";
+	date.insertAdjacentHTML("beforeend", html);
+	*/
+	var eventBlock=document.getElementById(dateId).childNodes[1];
+	var html="<div class='test'><a href='https://www."+scheduleNo+".com'>"+scheduleNo+"</a></div>";
+	eventBlock.insertAdjacentHTML("beforeend", html);
+	
+}
+
 
 
 </script>
@@ -218,12 +231,12 @@ body {
 
 #calendar {
 	margin: 0 auto;
-	width: 100%;
-	position: relative;
+	/*width: 100%;*/
+	/*position: relative;*/
 }
 
 .days {
-	width: 100%;
+	/*width: 100%;*/
 	text-align: left;
 }
 
@@ -267,15 +280,16 @@ body {
 /* event */
 /*calendar, date -> position relative로 수정*/
 .event {
-	width:100%;
+	width: 100%;
+	height: auto;	
 	clear: both;
 	position: absolute;
-	top: 20px;
-	right: 50px;
-	display:inline-block;
+	top: 45px;
+	right: 30px;
+	/*display:inline-block;*/
 	font-size: 13px;
-	margin-bottom:2px;
-	line-height: 0px;
+	/*line-height: 0px;*/
+	padding: 1px;
 }
 
 .event a {
@@ -290,6 +304,21 @@ body {
 	text-decoration: underline;
 }
 
+
+/*****************************************************************/
+/* footer */
+#footer {
+	background: #1b1b1b;
+	padding: 80px;
+}
+
+
+/*****************************************************************/
+/*
+	[to-do list]
+	1. 배율 조정시 달력블럭 줄바뀜 처리
+	2. date 블럭 내부에 일정 입력시 겹침현상 (relative 안에 position으로 위치설정)
+*/
 
 </style>
 
@@ -351,20 +380,20 @@ body {
 	</div>
 	<script type="text/javascript">
 		makeCalendar();	
-	
+		
+		addLinkTest("date6", "naver");
+		addLinkTest("date6", "google");
+		addLinkTest("date10", "google");
+		//alert(document.getElementById("date1").childNodes[1]);
+		
+		
+		
+		
 		function addOn(){
 			var tabList=document.getElementsByClassName("link-tab");
 			tabList[0].classList.add("on");
 		}
 		addOn();
-		
-		function addLinkTest(dateId, scheduleNo){
-			var date=document.getElementById(dateId);
-			var html="<div class='event'><a href='https://www."+scheduleNo+".com'>0코스 네이버링크</a></div>";
-			
-			date.insertAdjacentHTML("beforeend", html);
-		}
-		addLinkTest("date6", "naver");
 		
 		
 		/*
