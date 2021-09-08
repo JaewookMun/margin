@@ -113,6 +113,7 @@ body {
 
 #container {
 	width: 1000px;
+	/*width: 75%;*/
 	margin: 0 auto;
 	height: auto;
 	padding: 50px;
@@ -182,12 +183,17 @@ body {
 
 #month-area {
 	margin-bottom: 40px;
-	font-size: 0;
 }
 
 #month-area div {
 	display: inline;
 	user-select: none;
+}
+
+#month-area p {
+	color: #333;
+	font-size: 15px;
+    font-weight: 300;
 }
 
 #yearMonthTxt {user-select: text !important;}
@@ -225,6 +231,21 @@ body {
 }
 
 
+/*****************************************************************/
+/* program type (프로그램 유형 리스트) css */
+
+#program_type {
+	text-align: left
+}
+
+#program_type ul {
+	float: left;
+}
+
+.dayColumns {
+	clear: both;
+}
+
 
 /*****************************************************************/
 /* 달력 css - days(week), day(요일), date(일) */
@@ -252,6 +273,7 @@ body {
 	user-select: none;
 	display: inline-block;
 	width: 13.075%;
+	/*width: 130.75px;*/
 }
 
 .day {
@@ -280,8 +302,8 @@ body {
 /* event */
 /*calendar, date -> position relative로 수정*/
 .event {
-	width: 100%;
-	height: auto;	
+	/*width: 100%;
+	height: auto;*/	
 	clear: both;
 	position: absolute;
 	top: 45px;
@@ -300,7 +322,7 @@ body {
 	color: #561f8e;
 }
 
-.event:hover {
+.event a:hover {
 	text-decoration: underline;
 }
 
@@ -316,8 +338,7 @@ body {
 /*****************************************************************/
 /*
 	[to-do list]
-	1. 배율 조정시 달력블럭 줄바뀜 처리
-	2. date 블럭 내부에 일정 입력시 겹침현상 (relative 안에 position으로 위치설정)
+	1. 배율 조정시 달력블럭 줄바뀜 처리 -> try 최소 width 설정 (더 안 좁아지게 설정)
 */
 
 </style>
@@ -356,11 +377,33 @@ body {
 				<div id="nextMonth" onclick="next();">
 					<img alt="next" src="images/month_next.png">
 				</div>
+				<p>제주올레에서 진행되는 행사 및 프로그램 일정을 확인 할 수 있습니다.</p>
 			</div>
 		
-			<div class="program_type"></div>
+			<div id="program_type">
+				<ul>
+					<li class="p_typeList">
+						<div class="bullet_A">제주올레행사 및 프로그램</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="p_typeList">
+						<div class="bullet_B">아카자봉과 함께 걷기</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="p_typeList">
+						<div class="bullet_C">역방향 코스</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="p_typeList">
+						<div class="bullet_D">클린올레</div>
+					</li>
+				</ul>
+			</div>
 			
-			<div class="days">
+			<div class="days dayColumns">
 				<div class="day">일</div><!--  
 				--><div class="day">월</div><!--
 				--><div class="day">화</div><!--
