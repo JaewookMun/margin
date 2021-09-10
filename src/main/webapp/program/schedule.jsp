@@ -8,6 +8,10 @@
 <%-- 폰트 - Noto Sans kr --%>
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
 
+<!-- 공용 css -->
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="program.css">
+
 <script type="text/javascript">
 //Date 객체 저장 - 달력출력을 위한 기준일
 var today = new Date();
@@ -99,79 +103,7 @@ function addLinkTest(dateId, scheduleNo){
 	-webkit-box-sizing: border-box;
 }
 */
-body {
-	margin: 0px;
-	padding: 0px;
-	font-family: 'Noto Sans KR', sans-serif;
-}
 
-
-#header {
-	border-bottom: 1px solid gray;
-	padding: 40px;
-}
-
-#container {
-	width: 1000px;
-	/*width: 75%;*/
-	margin: 0 auto;
-	height: auto;
-	padding: 50px;
-	margin-bottom: 80px;
-	text-align: center;
-	position: relative;
-}
-
-.cont-title {
-	padding-top: 10px;
-	width: 100%;
-}
-
-.cont-title h1 {
-	margin: 0px;
-}
-
-.cont-title span {
-	background-color: #08b2f5;
-	width: 60px;
-    height: 6px;
-    background: #08b2f5;
-    position: relative;
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.cont-nav {
-	text-align: center;
-	width: 100%;
-}
-
-.cont-nav ul {
-	padding-left: 0px;
-}
-
-.link-tab {
-	display: inline-block;
-	list-style: none;
-	border: 1px solid #e2e2e2;
-	width: 16.455%;
-	height: 50px;
-	color: #b29a95;
-}
-
-.link-tab a {
-	display: block;
-	text-decoration: none;
-	color: inherit;
-	width: 100%;
-	height: 100%;
-	padding-top: 13px;
-}
-
-.link-tab:hover, .on {
-	background-color: #08b2f5;
-	color: #ffffff;
-}
 
 /*****************************************************************/
 /* 달력 css - year, month */
@@ -232,7 +164,7 @@ body {
 
 
 /*****************************************************************/
-/* program type (프로그램 유형 리스트) css */
+/* calendar - program type (프로그램 유형 리스트) css */
 
 #program_type {
 	text-align: left
@@ -327,12 +259,7 @@ body {
 }
 
 
-/*****************************************************************/
-/* footer */
-#footer {
-	background: #1b1b1b;
-	padding: 80px;
-}
+
 
 
 /*****************************************************************/

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+#header {
+	border-bottom: 1px solid gray;
+	padding: 40px;
+}
+
+
+
+/*****************************************************************/
+/* footer */
+#footer {
+	background: #1b1b1b;
+	padding: 80px;
+}

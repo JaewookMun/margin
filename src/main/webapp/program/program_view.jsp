@@ -6,78 +6,14 @@
 <meta charset="UTF-8">
 <title>final project demo</title>
 
+<%-- 폰트 - Noto Sans kr --%>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+
+<!-- 공용 css -->
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="program.css">
 
 <style>
-body {
-	margin: 0px;
-	padding: 0px;
-}
-
-#header {
-	border-bottom: 1px solid gray;
-	padding: 40px;
-}
-
-#container {
-	width: 80%;
-	margin: 0 auto;
-	padding-top: 40px;
-	margin-bottom: 80px;
-	text-align: center;
-}
-
-.cont-title {
-	padding-top: 10px;
-}
-
-.cont-title h1 {
-	margin: 0px;
-}
-
-.cont-title span {
-	background-color: #08b2f5;
-	width: 60px;
-    height: 6px;
-    background: #08b2f5;
-    position: relative;
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.cont-nav {
-	text-align: center;
-}
-
-.cont-nav ul {
-	padding-left: 0px;
-}
-
-.link-tab {
-	display: inline-block;
-	list-style: none;
-	border: 1px solid #e2e2e2;
-	width: 14%;
-	height: 50px;
-	color: #b29a95;
-}
-
-.link-tab a {
-	display: block;
-	text-decoration: none;
-	color: inherit;
-	width: 100%;
-	height: 100%;
-	padding-top: 13px;
-}
-
-.link-tab:hover, .on {
-	background-color: #08b2f5;
-	color: #ffffff;
-}
-
-.contents-area {
-	margin-top: 50px;
-}
 
 </style>
 </head>
