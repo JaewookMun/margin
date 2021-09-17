@@ -10,6 +10,7 @@
 
 <!-- 공용 css -->
 <link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="reset.css">
 <link rel="stylesheet" href="program.css">
 
 <style type="text/css">
@@ -68,7 +69,8 @@
 					<tr>
 						<th>코스</th>
 						<td>
-							<select name="scheduleCourse">
+							<select name="scheduleCourse" onselect="test();">
+								<option value="0">========선택========</option>
 								<option value="01">01 코스</option><option value="01-1">01-1 코스</option><option value="02">02 코스</option>
 								<option value="03-A">03-A 코스</option><option value="03-B">03-B 코스</option><option value="04">04 코스</option>
 								<option value="05">05 코스</option><option value="06">06 코스</option><option value="07">07 코스</option>
@@ -81,6 +83,9 @@
 								<option value="21">21 코스</option>
 							</select>
 							
+						</td>
+						<td>
+							<input type="text" name="departureLocation">
 						</td>
 					</tr>
 					<tr>
@@ -115,5 +120,9 @@
 		</div>
 	</div>
 	<div id="footer"></div>
+	<script type="text/javascript">
+	
+	
+	</script>
 </body>
 </html>

@@ -1,29 +1,31 @@
 @charset "UTF-8";
 
 /***********************************************************/
-
 /* container */
-
 #container {
 	width: 1100px;
-	/*width: 75%;*/
 	margin: 0 auto;
 	height: auto;
 	padding: 50px;
 	margin-bottom: 80px;
 	text-align: center;
 	position: relative;
-	vertical-align: baseline;
-	background:transparent;
 }
 
 .cont-title {
-	padding-top: 10px;
+	padding-top: 20px;
 	width: 100%;
 }
 
 .cont-title h1 {
-	margin: 0px;
+	/*margin: 0px;*/
+	width: 100%;
+    font-size: 36px;
+    font-weight: 500;
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .cont-title span {
@@ -39,6 +41,7 @@
 .cont-nav {
 	text-align: center;
 	width: 100%;
+	margin-top: 50px;
 }
 
 .cont-nav ul {
@@ -49,7 +52,7 @@
 	display: inline-block;
 	list-style: none;
 	border: 1px solid #e2e2e2;
-	width: 16.455%;
+	width: 16.66%;
 	height: 50px;
 	color: #b29a95;
 }

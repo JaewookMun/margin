@@ -204,7 +204,7 @@ function addLinkTest(dateId, scheduleNo){
 .day, .date {
 	user-select: none;
 	display: inline-block;
-	width: 13.075%;
+	width: 14.286%;
 	/*width: 130.75px;*/
 }
 
