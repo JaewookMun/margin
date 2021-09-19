@@ -63,6 +63,12 @@
 	font-weight: 500;
 }
 
+.read-only {
+	color: #c0c0c0 !important;
+	/*마우스 클릭 방지 css*/
+	pointer-events: none; 
+}
+
 .schedule-input {
 	margin: 10px 10px 10px 10px;
 	height: 45px;
@@ -163,13 +169,17 @@
 					<tr>
 						<th>제목</th>
 						<td>
-							<input class="schedule-input" type="text" id="scheduleTitle" name="scheduleTitle" readonly="readonly">
-						</td>					
+							<input class="schedule-input read-only" type="text" id="scheduleTitle" name="scheduleTitle" readonly="readonly">
+							<label style="user-select: none;">
+								<span>직접입력</span>					
+								<input type="checkbox" onclick="inputSelf();">
+							</label>						
+						</td>
 					</tr>
 					<tr>
 						<th>프로그램 유형</th>
 						<td>
-							<select class="schedule-input" id="programBox" name="scheduleType" onchange="">
+							<select class="schedule-input" id="programBox" name="scheduleType" onchange="selectProgram();">
 								<option value="0">========선택========</option>
 								<option value="1">올레행사 및 프로그램</option>
 								<option value="2">아카자봉과 함께 걷기</option>
@@ -181,28 +191,29 @@
 					<tr>
 						<th>코스</th>
 						<td>
-							<select class="schedule-input" id="courseBox" name="scheduleCourse" onchange="selectCourse();">
+							<select class="schedule-input" id="courseBox" name="scheduleCourse" onchange="selectCourse();" disabled="disabled">
 								<option value="0">========선택========</option>
 								<option value="01">01 코스</option><option value="01-1">01-1 코스</option><option value="02">02 코스</option>
-								<option value="03-A">03-A 코스</option><option value="03-B">03-B 코스</option><option value="04">04 코스</option>
+								<option value="03A">03A 코스</option><option value="03B">03B 코스</option><option value="04">04 코스</option>
 								<option value="05">05 코스</option><option value="06">06 코스</option><option value="07">07 코스</option>
 								<option value="07-1">07-1 코스</option><option value="08">08 코스</option><option value="09">09 코스</option>
 								<option value="10">10 코스</option><option value="10-1">10-1 코스</option><option value="11">11 코스</option>
 								<option value="12">12 코스</option><option value="13">13 코스</option><option value="14">14 코스</option>
-								<option value="14-1">14-1 코스</option><option value="15-A">15-A 코스</option><option value="15-B">15-B 코스</option>
+								<option value="14-1">14-1 코스</option><option value="15A">15A 코스</option><option value="15B">15B 코스</option>
 								<option value="16">16 코스</option><option value="17">17 코스</option><option value="18">18 코스</option>
 								<option value="18-1">18-1 코스</option><option value="19">19 코스</option><option value="20">20 코스</option>
 								<option value="21">21 코스</option>
 							</select>
 
-							<input class="schedule-input" type="text" name="departureLocation">
+							<input class="schedule-input" type="text" id="departureLocation" name="departureLocation">
+							<span>직접입력</span><input type="checkbox" onclick="changeType();">
 						</td>
 					</tr>
 					<tr>
 						<th>일정</th>
 						<td>
-							<input class="schedule-input" type="text" id="datepicker" name="departureDate" placeholder="일정을 선택하세요">
-							<input class="schedule-input" type="text" name="departureTime" placeholder="ex) 09시 30분">
+							<input class="schedule-input" type="text" id="datepicker" name="departureDate" placeholder="출발일을 선택하세요">
+							<input class="schedule-input" type="text" name="departureTime" placeholder="ex)출발 시간 09시 30분">
 						</td>
 					</tr>
 					<tr>
@@ -240,6 +251,33 @@
 	</div>
 	<div id="footer"></div>
 	<script type="text/javascript">
+	
+		function inputSelf(){
+			var titleClassList=document.getElementById("scheduleTitle").classList;
+			
+			if(titleClassList.contains("read-only")){
+				document.getElementById("scheduleTitle").removeAttribute("readonly");
+				document.getElementById("scheduleTitle").focus();
+				titleClassList.remove("read-only")
+			} else {
+				document.getElementById("scheduleTitle").setAttribute("readonly", "readonly");
+				titleClassList.add("read-only");
+			}
+		}
+	
+		function selectProgram(){
+			var programValue=document.getElementById("programBox");
+			
+			var selectValue=programValue.options[programValue.selectedIndex].value;
+			
+			if(selectValue==1 || selectValue==0){
+				document.getElementById("courseBox").setAttribute("disabled", "disabled");
+			} else {
+				document.getElementById("courseBox").removeAttribute("disabled");
+			}
+
+		}
+	
 		function selectCourse(){
 			var courseValue=document.getElementById("courseBox");
 			
@@ -254,6 +292,10 @@
 			// option value값으로 선택
 			$("#programBox").val("1").prop("selected", true);
 
+		}
+		
+		function changeType(){
+			document.getElementById("departureLocation").setAttribute("value", "test");
 		}
 		
 	
