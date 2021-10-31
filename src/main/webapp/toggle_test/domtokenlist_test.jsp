@@ -28,11 +28,11 @@
 	<div id="container">
 		<p>DomtokenList test</p>
 		<button type="button" onclick="toggleFn();">for toggle</button>
-		<div class="error" id="msg">토글기능 테스트</div>
 		
 		<label for="inputTest">test</label>
 		<input type="text" id="inputTest">
 		<div class="error" id="inputMsg">글자를 입력해주세요</div>
+		<div class="error" id="msg">토글기능 테스트</div>
 	</div>
 
 	<script type="text/javascript">

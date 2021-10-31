@@ -403,7 +403,7 @@
 	    border: 0px;
 	}
 	
-	#commentBtn:hover {
+	#commentBtn:hover, #toList:hover {
 		background: #08b2f5; 
 	}
 	
@@ -440,7 +440,9 @@
 	    cursor: pointer;
 	}
 	
-	
+	textarea:focus::-webkit-input-placeholder {
+  		color: transparent;
+	}
 </style>
 </head>
 <body>
