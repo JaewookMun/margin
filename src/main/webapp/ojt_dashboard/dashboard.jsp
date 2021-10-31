@@ -114,7 +114,6 @@
 				<button id="completeBtn">완료</button>
 				<button id="cancelBtn" onclick="toggleEditingMode();">취소</button>
 			</div>
-			
 		</div>
 	</div>
 	
