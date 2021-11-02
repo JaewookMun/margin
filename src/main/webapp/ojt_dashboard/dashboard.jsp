@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>temp</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style type="text/css">
 	
 	#header {text-align: center;}
@@ -116,10 +117,19 @@
 			</div>
 		</div>
 	</div>
+	<div id="toggleTest">
+		<button onclick="toggleTest();"></button>
+	</div>
 	
 	<div id="footer"></div>
 	
 	<script type="text/javascript">
+		function toggelTest(){
+			$("#toggleTest").toggle(function(){
+				$(this).attr('data-test', 'test');
+			})
+		}	
+	
 		function listToggle(n){
 			var btnEle=document.getElementById("listBtn"+n);
 			var liClassList=document.getElementById("listBtn"+n).parentElement.parentElement.classList;
