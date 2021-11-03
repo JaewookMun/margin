@@ -7,6 +7,18 @@
 <title>Top 10 Richest People</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://kit.fontawesome.com/3da1a747b2.js" crossorigin="anonymous"></script>
+<style type="text/css">
+/*http://devstar21.blogspot.com/2016/06/css-css-disable-text-selection.html*/
+.number {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+</style>
 </head>
 <body>
 	<h1>10 Richest People</h1>
