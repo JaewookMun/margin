@@ -30,5 +30,8 @@
 	</button>
 	
 	<script src="script.js"></script>
+	<script type="text/javascript">
+		$(".draggable").draggable({ scroll: true });
+	</script>
 </body>
 </html>
