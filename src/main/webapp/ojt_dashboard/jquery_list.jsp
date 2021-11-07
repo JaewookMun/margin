@@ -21,7 +21,7 @@
 	}
 	
 	#listCont {
-		background: red;
+		/* background: red; */
 	}
 	
 	#listCont .listItem {
@@ -41,19 +41,6 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-<script type="text/javascript">
-	$( function() {
-	    $( "#listCont" ).sortable({
-	      revert: true
-	    });
-	    $( ".listItem" ).draggable({
-	      connectToSortable: "#listCont",
-	      //helper: "clone",
-	      revert: "invalid"
-	    });
-	    $( "div" ).disableSelection();
-  } );
-</script>
 </head>
 <body>
 	<div id="header"></div>
@@ -62,26 +49,67 @@
 		<h1>ojt project test Page</h1>
 		
 		<div id="listCont">
-			<div class="listItem ui-state-default">
+			<div class="listItem">
 				사과
 			</div>
-			<div class="listItem ui-state-default">
+			<div class="listItem">
 				딸기
 			</div>
-			<div class="listItem ui-state-default">
+			<div class="listItem">
 				바나나
 			</div>
-			<div class="listItem ui-state-default">
+			<div class="listItem">
 				배
 			</div>
-			<div class="listItem ui-state-default">
+			<div class="listItem">
 				수박
 			</div>
+		</div>
+		
+		<div>
+			<button id="modeBtn" class="off" onclick="switchMode();">button</button>
 		</div>
 	</div>
 	
 	<div id="footer"></div>
 	
+	<script type="text/javascript">
+	function switchMode(){
+		var btnClassList=document.getElementById("modeBtn").classList;
+		btnClassList.toggle("on");
+		btnClassList.toggle("off");
+		
+		if(btnClassList.contains("on")){
+			alert("draggable on");
+			
+			$(function() {
+				$("#listCont").sortable({
+					revert : true
+				});
+				$(".listItem").draggable({
+					connectToSortable : "#listCont",
+					//helper: "clone",
+					revert : "invalid"
+				});
+				// 텍스트가 선택되지 않게 처리하는 메소드.
+				$("div").disableSelection();
+			});
+			
+		} else {
+			alert("draggable off");
+			
+			$(function(){
+				$("#listCont").sortable("option", "cancel");
+				$(".listItem").draggable("disable")				
+			});
+			
+		}
+		
+	}
+	
+	
+	
+	</script>
 	
 </body>
 </html>
