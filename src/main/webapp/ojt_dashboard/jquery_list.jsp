@@ -99,8 +99,10 @@
 			alert("draggable off");
 			
 			$(function(){
-				$("#listCont").sortable("option", "cancel");
-				$(".listItem").draggable("disable")				
+				$("#listCont").sortable({
+					cancel: "div"
+				});
+				//$(".listItem").draggable({disabled: true})				
 			});
 			
 		}
