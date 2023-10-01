@@ -1,0 +1,7 @@
+hello
+
+<<<<<<< HEAD
+방금은 브랜치+PR 같이했고
+이번엔 메인 브랜치에서 PR합니다.
+안녕하세요 branch생성해서 commit후 PR 요청합니다
+>>>>>>> origin/main
