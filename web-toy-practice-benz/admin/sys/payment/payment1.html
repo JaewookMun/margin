@@ -1,0 +1,207 @@
+
+	<!-- 
+	************************************************************************************************************
+	* 프로젝트명(Context name): samjo
+	* 
+	* 
+	* /samjo/admin/index.html 파일의 주석을 참고해주세요
+	* 
+	* 
+	* @author 문재욱
+	************************************************************************************************************
+	-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="/margin/admin/images/info.png">
+	<title>Margin</title>
+	<!-- jQuery CDN -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- bootstrap CDN - CSS, JavaScript -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+	<!-- 구글폰트 - 영어에 적용 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+	
+	<!-- 한글(sidebar subListItem에 적용) -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+	
+	<!-- CSS 적용 -->
+	<link rel="stylesheet" href="/margin/admin/style.css">
+	
+	<!-- 작성한 JavaScript 파일은 body 태그 하단부에 위치되어 있습니다. -->
+	
+	
+</head>
+
+<body>
+
+	<!-- sidebar & navbar     -->
+	<div class="row container-fluid mx-0 px-0 fixed-top" id="outline">
+		
+		<!-- sidebar (좌측화면) -->
+		<div class="col-md-2 sidebar mx-0">
+			<a href="/margin/admin/index.html" class="text-dark text-decoration-none text-center fs-2 d-block mx-auto" id="jGroup-name">
+				<span class="group-name">margin</span>
+			</a>
+			<ul class="list-group">
+				<li class="upperList">
+					<button type="button" class="listBtn"
+						data-bs-toggle="collapse" data-bs-target="#memberCollapse" aria-expanded="false" aria-controls="memberCollapse">
+							Member
+					</button>
+					<div class="collapse" id="memberCollapse">
+						<ul class="list-group">
+							<li class="subListItem"><a href="javascript:memberManagementOne();">회원 주소록</a></li>
+							<li class="subListItem"><a href="javascript:memberManagementTwo()">(Null)</a></li>
+							<li class="subListItem"><a href="javascript:memberManagementThree()">(Null)</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="upperList">
+					<button type="button" class="listBtn"
+						data-bs-toggle="collapse" data-bs-target="#productsCollapse" aria-expanded="false" aria-controls="productsCollapse">
+							Products
+					</button>
+					<div class="collapse" id="productsCollapse">
+						<ul class="list-group">
+							<li class="subListItem"><a href="javascript:productsManagementOne();">상품등록</a></li>
+							<li class="subListItem"><a href="javascript:productsManagementTwo();">상품 정보 관리</a></li>
+							<li class="subListItem"><a href="javascript:productsManagementThree();">(Null)</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="upperList">
+					<button type="button" class="listBtn"
+						data-bs-toggle="collapse" data-bs-target="#boardCollapse" aria-expanded="false" aria-controls="boardCollapse">
+							Board
+					</button>
+					<div class="collapse" id="boardCollapse">
+						<ul class="list-group">
+							<li class="subListItem"><a href="javascript:boardManagementOne();">공지사항</a></li>
+							<li class="subListItem"><a href="javascript:boardManagementTwo();">회원리뷰</a></li>
+							<li class="subListItem"><a href="javascript:boardManagementThree();">FAQ문의</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="upperList">
+					<button type="button" class="listBtn" 
+						data-bs-toggle="collapse" data-bs-target="#paymentCollapse" aria-expanded="false" aria-controls="paymentCollapse">
+							Payment
+					</button>
+					<div class="collapse" id="paymentCollapse">
+						<ul class="list-group">
+							<li class="subListItem"><a href="javascript:paymentManagementOne();">고객결제내역</a></li>
+							<li class="subListItem"><a href="javascript:paymentManagementTwo();">(Null)</a></li>
+							<li class="subListItem"><a href="javascript:paymentManagementThree();">(nNull)</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- 우측화면 시작 -->
+		<div class="col-md-10 ml-auto navbar-nav" id="rightPanel">
+			<!-- top navbar -->
+			<div class="row jNavbar">
+				<div class="col">
+					<h4 class="mb-0 py-2 mx-2">DashBoard</h4>
+				</div>
+				<div class="col"></div>
+				<div class="col" style="text-align: right" id="col3">
+					
+					<!-- 쇼핑몰 페이지로 이동 -->
+					<a href="javascript:goShoppingMall();" data-bs-toggle="tooltip" data-bs-placement="bottom" title="쇼핑몰">
+						<i class="bi bi-house">
+							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+								<!-- path 태그는 icon을 위해 필요한 태그입니다. -->
+								<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+								<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+							</svg>
+						</i>
+					</a>
+					
+					<!-- 관리자 계정 로그아웃 -->
+					<a href="javascript:adminLogout();" data-bs-toggle="tooltip" data-bs-placement="bottom" title="로그아웃">
+						<i class="bi bi-box-arrow-right">
+							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+								<!-- path 태그는 icon을 위해 필요한 태그입니다. -->
+								<path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+								<path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+							</svg>
+						</i>
+					</a>
+				</div>
+			</div>
+			<div class="navbar-nav-scroll" id="contents-container">
+				<div class="container">
+				<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+				
+				<!-- 작업내용은 여기서부터 작성해주세요. -->
+				
+					<h3>board 게시판 페이지(예시) 입니다.</h3>
+					<hr>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				<!-- 편집창 종료 -->
+				</div>
+				<div class="card-body" id="content-footer">
+					<div class="row d-flex align-items-center">
+						<div class="col-3">
+							<p>ⓒ 2021 - <span style="font-weight: bold; font-size: 11px;">Samjo</span>
+								. All Rights Reserved. </p>
+						</div>
+						<div class="col-9" style="text-align: right;">
+							<p>Contact team leader, <span style="font-style: italic;">Margin</span>&nbsp;,&nbsp;for design</p>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 
+		[ 외부 스크립트 ]
+		 
+		 관리 카테고리 및 쇼핑몰, 로그아웃 기능을 관리하는 외부 스크립트 입니다.
+		 지우지 말아주시고 스크립트 작성 시 아래의 내부 스크립트를 이용해주세요.
+		 @author 문재욱
+	-->
+	<script type="text/javascript" src="/margin/admin/link_event.js"></script>
+	
+	
+	<!-- 현재 문서의 동적 작업은 여기서 진행해주세요 -->
+	<script type="text/javascript">
+	
+	
+	
+	</script>
+	</body>
+</html>

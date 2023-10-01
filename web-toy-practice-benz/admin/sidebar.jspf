@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+ <!-- sidebar (좌측화면) -->
+		<div class="col-md-2 sidebar mx-0">
+			<a href="/margin/admin/index.jsp" class="text-dark text-decoration-none text-center fs-2 d-block mx-auto" id="jGroup-name">
+				<span class="group-name">margin</span>
+			</a>
+			<ul class="list-group">
+				<li class="upperList">
+					<button type="button" class="listBtn" id="listBtn1" onclick="memberClick();"
+						data-bs-toggle="collapse" data-bs-target="#memberCollapse" aria-expanded="false" aria-controls="memberCollapse">
+							Member
+					</button>
+					<div class="collapse" id="memberCollapse">
+						<ul class="list-group">
+							<li class="subListItem align-items-center"><a href="/margin/admin/sys/member/member1.jsp?category=member">회원 주소록</a></li>
+							<li class="subListItem"><a href="#">(Null)</a></li>
+							<li class="subListItem"><a href="#">(Null)</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="upperList">
+					<button type="button" class="listBtn" id="listBtn2" onclick="productsClick();"
+						data-bs-toggle="collapse" data-bs-target="#productsCollapse" aria-expanded="false" aria-controls="productsCollapse">
+							Products
+					</button>
+					<div class="collapse" id="productsCollapse">
+						<ul class="list-group">
+							<li class="subListItem"><a href="/margin/admin/sys/products/products1.jsp?category=products">상품등록</a></li>
+							<li class="subListItem"><a href="#">상품 정보 관리</a></li>
+							<li class="subListItem"><a href="#">(Null)</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="upperList">
+					<button type="button" class="listBtn" id="listBtn3" onclick="boardClick();"
+						data-bs-toggle="collapse" data-bs-target="#boardCollapse" aria-expanded="false" aria-controls="boardCollapse">
+							Board
+					</button>
+					<div class="collapse" id="boardCollapse">
+						<ul class="list-group">
+							<li class="subListItem"><a href="/margin/admin/sys/board/board1.jsp?category=board">공지사항</a></li>
+							<li class="subListItem"><a href="#">회원리뷰</a></li>
+							<li class="subListItem"><a href="#">FAQ문의</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="upperList">
+					<button type="button" class="listBtn" id="listBtn4" onclick="paymentClick();"
+						data-bs-toggle="collapse" data-bs-target="#paymentCollapse" aria-expanded="false" aria-controls="paymentCollapse">
+							Payment
+					</button>
+					<div class="collapse" id="paymentCollapse">
+						<ul class="list-group">
+							<li class="subListItem"><a href="/margin/admin/sys/payment/payment1.jsp?category=payment">고객결제내역</a></li>
+							<li class="subListItem"><a href="#">(Null)</a></li>
+							<li class="subListItem"><a href="#">(nNull)</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>

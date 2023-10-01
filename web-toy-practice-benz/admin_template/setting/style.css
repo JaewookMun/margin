@@ -1,0 +1,146 @@
+@charset "UTF-8";
+	
+	#outline { bottom: 0px; }
+	
+	/* [sidebar 스타일] */
+	
+	.sidebar {
+		height: 100vh !important;
+		padding: 0 !important;
+		box-shadow: 2px 2px 2px #999;
+		/* background: #ebf1f3; */
+	}
+	
+	#jGroup-name { 
+		height: 66px;
+		background: #e9e2da !important; /* 상단색 */
+		border-bottom: 1px solid #DCDCDC !important;
+	}
+	
+	.group-name { 
+		font-family: 'Festive', cursive;
+		font-size: 40px;
+	}
+	
+	/* ul, li */
+	.list-group, .upperList { 
+		list-style: none !important;
+		text-align: center;
+	    font-size: 1.05em !important;
+		font-weight: bold !important;
+	}
+	
+	.list-group {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+	
+	ul .upperList {
+		margin-top: 25px;
+	}
+	
+	.listBtn {
+		border: none !important;
+		background: transparent !important;
+		font-weight: bold !important;
+	}
+	
+	.subListItem {
+		text-align: left !important;
+		padding-left: 43%;
+	}
+	
+	.subListItem a {
+		text-decoration: none !important;
+		font-family: 'Nanum Gothic Coding', monospace;
+		font-size: 0.65em !important;
+		color: black !important;
+	}
+	
+
+	/* sidebar hover 색상 */
+	.listBtn:hover {
+		color: #C0C0C0;
+	}
+	
+	.subListItem:hover {
+		background: #FDF5E6;
+	}
+	
+	
+	/* 우측 화면 */
+	#rightPanel { padding-right: 0px; }
+	
+	/* [navbar(상단 바) 스타일] */
+	.jNavbar {
+		padding-top: 20px;
+		margin-left: 3px;
+		border-bottom: 1px solid #DCDCDC;
+		background: #e9e2da; /* 상단바 색상 */
+	}
+	
+	.jNavbar div {
+		padding-bottom: 5px !important;
+	}
+	
+	.jNavbar h4 {
+		font-weight: bold !important;
+		font-size: 20px !important;
+	}
+	
+	.jNavbar p{
+		margin-bottom: 0px !important;
+		font-size: 5px !important;
+	}
+
+	.jNavbar a {
+		text-decoration: none !important;
+		color: black !important;
+		display: inline !important;
+		margin-right: 10px !important;
+	}
+	
+	.jNavbar a:hover {
+		color: #C0C0C0;
+	}
+	
+	#col3 { padding-right: 60px; } /*icon 우측 여백확보*/
+
+	/* icon CSS 속성 */
+	.bi-house { margin-right: 5px; }
+	
+	
+	/* 작업화면 레이아웃 */
+	
+	#contents-container {
+		margin-left: 3px;
+		background: #f7f9fc;
+		--bs-scroll-height: 91vh;
+	}
+	
+		
+	.container { margin-top: 20px; }
+	
+	
+	/* footer */
+	#content-footer {
+		border-top: 1px solid #DCDCDC;
+		background-color: #fff;
+		margin-top: 70px;
+		font-size: 10px;
+		color: #737d85;
+	}
+	
+	#content-footer p {
+		margin-bottom: 0px !important;
+	}
+	
+	
+	.admin-footer .p1 {
+		text-align: initial;
+	}
+
+	.admin-footer .p2 {
+		text-align: right;
+	}
+
